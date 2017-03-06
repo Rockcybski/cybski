@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Exploring Dojo</title>
+
+<script src="//ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/dojo.xd.js">
+</script>
+<script>
+dojo.addOnLoad(function() {
+    dojo.create(
+        "div",
+        {
+            "innerHTML": "Hello, World!",
+            "style" : "border:1px solid black"
+        },
+        dojo.body()
+    );
+    
+    var message = dojo.byId("message");
+    dojo.connect(message,"onclick",function(){
+    	alert(message.innerHTML);
+    });
+    
+    dojo.query("#list li").onclick(function(e){
+    	dojo.style(e.target, {
+    		fontWeight: "bold"
+   		});
+    });
+});
+
+function consoleList(){
+	dojo.query("#list li").forEach(function(item){
+		console.log(item.innerHTML);
+	});
+}
+
+function highlight(){
+	dojo.query(".highlight").style({
+		color:"red",
+		backgroundColor:"yellow"
+	});
+}
+
+var list = ['My','name','is','Joe'];
+var filteredList = dojo.filter(list, function(item){
+	return item!= 'is';
+});
+dojo.forEach(filteredList, "console.log(item)");
+
+</script>
+</head>
+<body>
+<h1>Exploring Dojo</h1>
+<a href="javascript:consoleList()">Console List</a>&nbsp;<a href="javascript:highlight()">Highlight</a>
+<div id="message">This is a DIV element with id attribute message.</div>
+<ul id="list">
+    <li>This is the first item in a list</li>
+    <li class="highlight">This is the second item in a list</li>
+    <li>This is the third item in a list</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Exploring Dojo</title>
+<script src="//ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/dojo.xd.js">
+</script>
+<script>
+//Class name, superClass, object contains all properties and methods of this Class
+dojo.declare("Car", null, {
+	reg_no: "",
+	current_speed: 0,
+	current_gear: 0,
+	constructor: function(reg_no){
+		this.reg_no = reg_no;
+	},
+	accelerate: function(increment) {
+        this.current_speed += increment;
+    },
+    decelerate: function(decrement) {
+        this.current_speed -= decrement;
+    },
+    increaseGear: function() {
+        this.current_gear++;
+    },
+    decreaseGear: function() {
+        this.current_gear--;
+    }
+});
+dojo.declare("ATCar", Car, {
+    accelerate: function(increment) {
+        this.inherited(arguments);//调用父类函数相同函数
+        if(increment >= 10) this.increaseGear();
+    },
+    decelerate: function(decrement) {
+        this.inherited(arguments);
+        if(decrement >= 10) this.decreaseGear();
+    }
+});
+var myCar = new ATCar("10C500");
+myCar.accelerate(30);
+myCar.accelerate(20);
+myCar.decelerate(5);
+console.log(myCar.reg_no+" is travelling at "+myCar.current_speed+" mph in gear "+myCar.current_gear);
+
+dojo.declare("Phone", null, {
+	phone_number: "",
+	minutes_remaining: 0,
+	constructor: function(properties){
+		//this.phone_number = properties.phone_number;
+		//this.minutes_remaining = properties.minutes_remaining;
+		dojo.mixin(this, properties);
+		console.log("Phone "+this.phone_number+" powered on. you have "+ this.minutes_remaining + " minute(s) remaining.");
+	}
+});
+
+dojo.declare("MediaPlayer", null, {
+	disk_space: 0,
+	songs: [],
+	constructor: function(properties){
+		//this.disk_space = properties.disk_space;
+		//this.songs = properties.songs;
+		dojo.mixin(this, properties);
+		console.log("Media Player powered on. You have " + this.songs.length + " songs, with "+ this.disk_space+" GB free space left.");
+	}
+});
+
+dojo.declare("SmarePhone", [Phone, MediaPlayer], {
+	phone_id: "",
+	constructor: function(properties) {
+        //this.phone_id = properties.phone_id;
+        dojo.mixin(this, properties);
+        console.log("Smartphone ID "+this.phone_id+" boot up complete.");
+    }
+});
+
+var songs = [
+    {artist:"U2",title:"Vertigo"},
+    {artist:"Coldplay",title:"Yellow"}
+];
+
+var myPhone = new SmarePhone({
+    phone_number:"(555) 123-4567", 
+    minutes_remaining: 60, 
+    disk_space: 2.5, 
+    songs: songs,
+    phone_id: "4345FDFD7JAPO76"
+});
+
+console.log(myPhone);
+</script>
+</head>
+<body>
+</body>
+</html>
