@@ -1,5 +1,9 @@
 package com.rock.cybski.util;
 
+import java.util.regex.Pattern;
+
+import org.springframework.util.Assert;
+
 public class BasicRegexUtil {
 	/*
 	 * . means any char
@@ -29,9 +33,7 @@ public class BasicRegexUtil {
 	public static final String CHINESE_PHONE_NUMBER = "(\\+86|0086)?\\s?1\\d{10}";
 	
 	public static boolean checkChinesePhoneNumber(String number){
-		if(number.matches(CHINESE_PHONE_NUMBER)) 
-			return true;
-		else 
-			return false;
+		Assert.notNull(number);
+		return Pattern.matches(CHINESE_PHONE_NUMBER, number);
 	}
 }
