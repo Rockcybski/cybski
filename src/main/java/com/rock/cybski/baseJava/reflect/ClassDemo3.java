@@ -5,6 +5,6 @@ public class ClassDemo3 {
 		String s = "hello";
 		ClassUtil.printClassMessage(s);
 		ClassUtil.printFieldMessage(s);
-		ClassUtil.printConMessage(s);
+		ClassUtil.printConstructorMessage(s);
 	}
 }

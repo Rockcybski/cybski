@@ -8,7 +8,7 @@ public class ParseAnn {
 	public static void main(String[] args) {
 		//1. 使用类加载器加载类
 		try {
-			Class c = Class.forName("annotation.Child");
+			Class c = Class.forName("com.rock.cybski.baseJava.annotation.Child");
 			//2. 找到类上面的注解
 			boolean isExist = c.isAnnotationPresent(Description.class);
 			if(isExist){

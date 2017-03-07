@@ -80,7 +80,7 @@ public class ClassUtil {
 	 * @param obj
 	 */
 	@SuppressWarnings("rawtypes")
-	public static void printConMessage(Object obj){
+	public static void printConstructorMessage(Object obj){
 		Class c = obj.getClass();
 		/*
 		 * 构造函数也是对象
