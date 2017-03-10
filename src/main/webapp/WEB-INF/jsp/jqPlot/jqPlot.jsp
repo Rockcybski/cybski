@@ -18,7 +18,7 @@
 			<tr>
 				<td nowrap="nowrap" valign="top">
 					<a href="javascript:createSingerDataRenderer();">Singer Data Renderer</a><br/>
-					<a href="javascript:createAjaxJsonDataRenderer();">Ajax Json Data Renderer</a>
+					<a href="javascript:createAjaxJsonDataRenderer();">Ajax Json Data Renderer</a><br/>
 					<a href="javascript:createAnimatedCharts();">Animated Charts</a>
 				</td>
 				<td>
