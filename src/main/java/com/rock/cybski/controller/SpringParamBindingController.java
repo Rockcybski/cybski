@@ -1,16 +1,18 @@
 package com.rock.cybski.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonRawValue;
 import com.rock.cybski.entity.User;
 
-@Controller
+@RestController
 @RequestMapping(value="/test")
 public class SpringParamBindingController {
 	
@@ -34,7 +36,23 @@ public class SpringParamBindingController {
 	@ResponseBody
 	@JsonRawValue
 	public Boolean updateUser(User user){
-		System.out.println(user); //User [id=1, name=Rock, introduction=updated]
+		System.out.println(user); //User [id=1, name=Rock, introduction=New User]
 		return true;
+	}
+	
+	@RequestMapping("/listUser")
+//	@ResponseBody
+	public List<User> listUser(){
+		List<User> result = new ArrayList<>();
+		User user1 = User.getNewUser(2, "Micky");
+		User user2 = User.getNewUser(3, "Cindy");
+		result.add(user1);
+		result.add(user2);
+		return result;
+	}
+	
+	@RequestMapping("/test")
+	public void test(){
+		System.out.println("test");
 	}
 }
