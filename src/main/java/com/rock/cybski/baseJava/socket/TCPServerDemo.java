@@ -24,6 +24,7 @@ public class TCPServerDemo {
 		}
 	}
 	
+	@SuppressWarnings("resource")
 	public static void multipleClientsServer() throws IOException{
 		//1. 创建服务器端的socket，即ServerSocket，指定绑定的端口，并监听此端口
 		ServerSocket serverSocket = new ServerSocket(8888);
