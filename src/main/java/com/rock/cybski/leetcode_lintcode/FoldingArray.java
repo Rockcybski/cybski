@@ -1,4 +1,4 @@
-package com.rock.cybski.lintcode;
+package com.rock.cybski.leetcode_lintcode;
 
 import java.util.ArrayList;
 import java.util.Collections;
