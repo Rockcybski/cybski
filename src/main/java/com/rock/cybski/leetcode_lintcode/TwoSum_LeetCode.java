@@ -17,7 +17,7 @@ return [0, 1].
 
  */
 public class TwoSum_LeetCode {
-	public int[] twoSum(int[] nums, int target) throws Exception {
+	public int[] twoSum(int[] nums, int target) throws IllegalArgumentException {
 		Map<Integer, Integer> answer2IndexMap = new HashMap<>();
 		for(int i=0;i<nums.length;i++) {
 			if(answer2IndexMap.containsKey(nums[i])) {
@@ -34,7 +34,6 @@ public class TwoSum_LeetCode {
 		try {
 			x = new TwoSum_LeetCode().twoSum(nums, 6);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println(x);
